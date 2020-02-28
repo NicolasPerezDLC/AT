@@ -1,3 +1,8 @@
+body{
+    overflow: hidden;
+    margin: 0;
+}
+
 input {
     font-size: 20px;
     width:500px;
@@ -26,3 +31,9 @@ button {
 button:hover {
     background: deepskyblue;
     color: black;
+}
+
+circle {
+    background-color: red;
+    color: red;
+}

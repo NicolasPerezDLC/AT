@@ -11,10 +11,16 @@ let numberOfMissedTargets = 0;
 const numTargets = 5;
 let targets = [];
 
+
+// ----------------------------- New Variables ---------------------------- //
+
+let windowWidth = window.innerWidth;
+let windowHeight = window.innerHeight;
+
 // ----------------------------- Restart Game ----------------------------- //
 
 function setup() {
-    createCanvas(windowWidth, windowheight);
+    createCanvas(windowWidth, windowHeight);
     background(0);
 
     input = createInput();
@@ -25,39 +31,50 @@ function setup() {
     button.mousePressed(start);
 }
 
+
 function start() {
     button.style("visibility", "hidden");
     input.style("visibility", "hidden");
     hasGameStarted = true;
-    recentScores = new RecentScores(input.value());
-
+    
     restartGame();
 }
 
 function restartGame() {
-    for (let i = 0; i < NUMBER_OF_TARGETS; i++) {
-      let hasDone = false
-      while(!hasDone) {
-        let newTarget = new Target(i, targets);
-        hasDone = newTarget.hasFoundTargetPosition(i);
-    }
+    generator();
+    
 }
-
-
-
-
-
 // ----------------------------- Generate Targets ----------------------------- //
 
 function generator() {
-
+    
     for (let index = 0; index < 10; index++) {
-        let x = Math.floor((Math.random() * 5) + 1);
-        console.log(x);
-        document.getElementById('redBall').innerHTML += '<img src="https://www.pngkit.com/png/full/123-1231528_red-ball-png-big-red-dot.png" style="width:35px;" >';
+        randomX = Math.floor(Math.random() * windowWidth);
+        randomY = Math.floor(Math.random() * windowHeight);
+        circle(randomX, randomY, 30);
     }
-
+    
+    
 }
+
+// ----------------------------- Mouse Press ----------------------------- //
+
+function mouseClicked() {
+    for (let i = 0; i < circle.length; i++);
+    clicked();
+}
+
+function clicked() {
+
+    let x1 = randomX;
+    let y1 = randomY;
+    let x2 = mouseX;
+    let y2 = mouseY;
+    let d = dist(x1, y1, x2, y2);
+        if (d < 15) {
+        splice (1);
+    }
+} 
 
 // ----------------------------- Aim Timer ----------------------------- //
 
