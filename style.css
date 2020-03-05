@@ -3,7 +3,7 @@ body{
     margin: 0;
 }
 
-input {
+input{
     font-size: 20px;
     width:500px;
 }
@@ -36,4 +36,8 @@ button:hover {
 circle {
     background-color: red;
     color: red;
+}
+
+#count {
+    color: white;
 }

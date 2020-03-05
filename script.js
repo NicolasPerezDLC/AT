@@ -1,18 +1,9 @@
 // ----------------------------- Variables ----------------------------- //
 
 let game;
-let score;
-let numberOfStaticHit = 0;
-let recentScores;
-let userClicks = [];
-let greeting, button, input;
+let button, inp;
 let hasGameStarted = false;
-let numberOfMissedTargets = 0;
-const numTargets = 5;
-let targets = [];
-
-
-// ----------------------------- New Variables ---------------------------- //
+let count;
 
 let windowWidth = window.innerWidth;
 let windowHeight = window.innerHeight;
@@ -23,30 +14,31 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     background(0);
 
-    input = createInput();
-    input.position(width / 2 - 250, height / 2);
+    inp = createInput();
+    inp.position(width / 2.7, height / 3);
 
     button = createButton('Play');
-    button.position(width / 2 - 250, height / 2 + 80);
+    button.position(width / 2.7, height / 2);
     button.mousePressed(start);
 }
 
 
 function start() {
     button.style("visibility", "hidden");
-    input.style("visibility", "hidden");
+    inp.style("visibility", "hidden");
     hasGameStarted = true;
     
-    restartGame();
+    Game();
 }
 
-function restartGame() {
-    generator();
-    
+function Game() {
+    gen();
 }
+    
+
 // ----------------------------- Generate Targets ----------------------------- //
 
-function generator() {
+function gen() {
     
     for (let index = 0; index < 10; index++) {
         randomX = Math.floor(Math.random() * windowWidth);
@@ -63,9 +55,6 @@ function generator() {
 function Del() {
     circle.style("visibility", "hidden");
 }
-
-
-
 
 function mouseClicked() {
     for (let i = 0; i < circle.length; i++);
